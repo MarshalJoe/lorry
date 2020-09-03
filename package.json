@@ -1,0 +1,25 @@
+{
+  "name": "@jarsmohella/pack-test",
+  "version": "1.0.0",
+  "description": "Test repo for interview questions",
+  "main": "index.js",
+  "scripts": {
+    "test": "cross-env jest --config jestconfig.json",
+    "build": "cross-env tsc",
+    "format": "cross-env prettier --write \"src/*.ts\"",
+    "lint": "cross-env tslint -p tsconfig.json"
+  },
+  "author": "Joe M",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^26.0.13",
+    "cross-env": "^7.0.2",
+    "jest": "^26.4.2",
+    "prettier": "^2.1.1",
+    "ts-jest": "^26.3.0",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.0.2"
+  },
+  "files": ["lib/**/*"]
+}
