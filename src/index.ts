@@ -9,26 +9,27 @@ const path = require('path');
 const program = require('commander');
 
 clear();
-console.log(chalk.red(figlet.textSync('pizza-cli', { horizontalLayout: 'full' })));
+console.log(chalk.white(figlet.textSync('Lorry', { horizontalLayout: 'full' })));
+
+program.version('1.0.0').description('A CLI for interacting with the ShipEngine API');
 
 program
-  .version('0.0.1')
-  .description("An example CLI for ordering pizza's")
-  .option('-p, --peppers', 'Add peppers')
-  .option('-P, --pineapple', 'Add pineapple')
-  .option('-b, --bbq', 'Add bbq sauce')
-  .option('-c, --cheese <type>', 'Add the specified type of cheese [marble]')
-  .option('-C, --no-cheese', 'You do not want any cheese')
-  .parse(process.argv);
+  .command('login')
+  .description('Log in to the ShipEngine API')
+  .option('-s, --setup_mode [mode]', 'Which setup mode to use')
+  .action(function (options: object) {
+    console.log('Logging in...');
+  });
 
-console.log('you ordered a pizza with:');
-if (program.peppers) console.log('  - peppers');
-if (program.pineapple) console.log('  - pineapple');
-if (program.bbq) console.log('  - bbq');
+program
+  .command('logout')
+  .description('Log out of the ShipEngine API')
+  .option('-s, --setup_mode [mode]', 'Which setup mode to use')
+  .action(function (options: object) {
+    console.log('Logging out...');
+  });
 
-const cheese: string = true === program.cheese ? 'marble' : program.cheese || 'no';
-
-console.log('  - %s cheese', cheese);
+program.parse(process.argv);
 
 if (!process.argv.slice(2).length) {
   program.outputHelp();

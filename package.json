@@ -1,10 +1,10 @@
 {
-  "name": "@jarsmohella/pack-test",
+  "name": "@jarsmohella/lorry",
   "version": "1.0.0",
-  "description": "Test repo for interview questions",
+  "description": "Test repo for ShipEngine interview questions",
   "main": "./lib/index.js",
   "bin": {
-    "pizza": "./lib/index.js"
+    "lorry": "./lib/index.js"
   },
   "scripts": {
     "test": "cross-env jest --config jestconfig.json",
@@ -12,7 +12,7 @@
     "format": "cross-env prettier --write \"src/*.ts\"",
     "lint": "cross-env tslint -p tsconfig.json"
   },
-  "author": "Joe M",
+  "author": "Joe Marshall",
   "license": "ISC",
   "dependencies": {
     "chalk": "^2.4.1",
