@@ -4,12 +4,9 @@
 
 import { login, logout } from './auth';
 const chalk = require('chalk');
-const clear = require('clear');
 const figlet = require('figlet');
 const path = require('path');
 const program = require('commander');
-
-clear();
 
 program.version('1.0.0').description('A CLI for interacting with the ShipEngine API');
 
