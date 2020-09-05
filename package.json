@@ -1,7 +1,7 @@
 {
   "name": "@jarsmohella/lorry",
   "version": "1.0.0",
-  "description": "Test repo for ShipEngine interview questions",
+  "description": "A CLI for interacting with the ShipEngine API",
   "main": "./lib/index.js",
   "bin": {
     "lorry": "./lib/index.js"
@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/inquirer": "^7.3.1",
+    "axios": "^0.20.0",
     "chalk": "^2.4.1",
     "commander": "^2.19.0",
     "figlet": "^1.2.1",

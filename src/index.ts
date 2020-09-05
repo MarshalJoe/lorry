@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
-// export const Greeter = (name: string) => `Hello ${name}`;
-
 import { login, logout } from './auth';
+import { list } from './carriers';
 const chalk = require('chalk');
 const figlet = require('figlet');
 const path = require('path');
@@ -24,6 +23,28 @@ program
   .option('-s, --setup_mode [mode]', 'Which setup mode to use')
   .action(function (options: object) {
     logout();
+  });
+
+program
+  .command('carriers <command>')
+  .description('Execute actions against your ShipEngine carriers')
+  .option("-e, --exec_mode <mode>", "Which exec mode to use")
+  .action(function(command: string, options: object){
+  	switch(command) {
+		  case 'ls':
+		    list();
+		    break;
+		  case 'get':
+		  	console.log("This method has not been implemented yet");
+		  	break;
+		  default:
+		    console.log('"%s" is not a valid subcommand for carriers', command);
+		}
+  }).on('--help', function() {
+    console.log('');
+    console.log('Example:');
+    console.log('');
+    console.log('  $ lorry carriers ls');
   });
 
 program.parse(process.argv);

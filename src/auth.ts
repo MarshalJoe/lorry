@@ -5,7 +5,7 @@ if (!NetRC.hasHost('shipengine.com')) {
 	NetRC.addHost('shipengine.com')
 }
 
-export function login () {
+export function login() {
 	if (get_key()) {
 		return console.log("You are already logged in. Please logout to login as another user.");
 	}
@@ -20,12 +20,12 @@ export function login () {
 	});
 };
 
-export function logout () {
-	_clear_key()
+export function logout() {
+	_clear_key();
 	console.log("You are no longer logged-in to ShipEngine.");
 };
 
-function get_key() {
+export function get_key() {
 	let key = NetRC.host('shipengine.com').password;
 	return key;
 }
