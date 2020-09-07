@@ -28,19 +28,20 @@ program
 program
   .command('carriers <command>')
   .description('Execute actions against your ShipEngine carriers')
-  .option("-e, --exec_mode <mode>", "Which exec mode to use")
-  .action(function(command: string, options: object){
-  	switch(command) {
-		  case 'ls':
-		    list();
-		    break;
-		  case 'get':
-		  	console.log("This method has not been implemented yet");
-		  	break;
-		  default:
-		    console.log(`${command} is not a valid subcommand for carriers`);
-		}
-  }).on('--help', function() {
+  .option('-e, --exec_mode <mode>', 'Which exec mode to use')
+  .action(function (command: string, options: object) {
+    switch (command) {
+      case 'ls':
+        list();
+        break;
+      case 'get':
+        console.log('This method has not been implemented yet');
+        break;
+      default:
+        console.log(`${command} is not a valid subcommand for carriers`);
+    }
+  })
+  .on('--help', function () {
     console.log('');
     console.log('Example:');
     console.log('');
