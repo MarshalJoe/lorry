@@ -1,7 +1,7 @@
 import {
   AxiosError,
 } from 'axios';
-import { handleAPIError } from '../error';
+import { handleAPIError, Errors } from '../error';
 import chalk from 'chalk';
 
 test('APIError handler', () => {
@@ -21,5 +21,5 @@ test('APIError handler', () => {
   	message: 'axios error'
   };
   handleAPIError(error);
-  expect(logSpy).toHaveBeenCalledWith(chalk.red("Error: The given API key is not valid"));
+  expect(logSpy).toHaveBeenCalledWith(chalk.red(Errors.Forbidden));
 });
