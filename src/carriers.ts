@@ -1,6 +1,6 @@
-import axios, { AxiosResponse } from 'axios';
-import { getKey } from './auth';
-import { handleAPIError } from './error';
+import axios, { AxiosResponse } from "axios";
+import { getKey } from "./auth";
+import { handleAPIError } from "./error";
 
 interface Carrier {
   readonly friendly_name: string;
@@ -10,13 +10,13 @@ interface Carrier {
 export function list() {
   const apiToken = getKey();
   if (!apiToken) {
-    console.log('Please log in to access your account resources.');
+    console.log("Please log in to access your account resources.");
     return;
   }
 
   axios
-    .get<Carrier[]>('https://api.shipengine.com/v1/carriers', {
-      headers: { 'API-Key': apiToken },
+    .get<Carrier[]>("https://api.shipengine.com/v1/carriers", {
+      headers: { "API-Key": apiToken },
     })
     .then((response: AxiosResponse) => {
       const { carriers } = response.data;

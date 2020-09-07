@@ -1,12 +1,12 @@
-import { AxiosError } from 'axios';
-import chalk from 'chalk';
+import { AxiosError } from "axios";
+import chalk from "chalk";
 
 export enum Errors {
-  BadRequest = 'Error: The request was invalid',
-  Forbidden = 'Error: The given API key is not valid',
-  NotFound = 'Error: The record could not be found',
-  ServerError = 'Error: The ShipEngine API is experiencing issues',
-  Default = 'Error: Unable to reach the ShipEngine API - please make sure you are connected',
+  BadRequest = "Error: The request was invalid",
+  Forbidden = "Error: The given API key is not valid",
+  NotFound = "Error: The record could not be found",
+  ServerError = "Error: The ShipEngine API is experiencing issues",
+  Default = "Error: Unable to reach the ShipEngine API - please make sure you are connected",
 }
 
 export function handleAPIError(error: AxiosError) {
