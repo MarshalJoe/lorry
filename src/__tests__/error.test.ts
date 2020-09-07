@@ -2,7 +2,7 @@ import {
   AxiosError,
 } from 'axios';
 import { handleAPIError } from '../error';
-const chalk = require('chalk');
+import chalk from 'chalk';
 
 test('APIError handler', () => {
 	const logSpy = jest.spyOn(console, 'log').mockImplementation(jest.fn())

@@ -1,5 +1,5 @@
 import { AxiosError } from 'axios';
-const chalk = require('chalk');
+import chalk from 'chalk';
 
 export function handleAPIError(error: AxiosError) {
   if (error.response) {

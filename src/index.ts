@@ -2,7 +2,7 @@
 
 import { login, logout } from './auth';
 import { list } from './carriers';
-const chalk = require('chalk');
+import chalk from 'chalk';
 const figlet = require('figlet');
 const path = require('path');
 const program = require('commander');
@@ -13,7 +13,7 @@ program
   .command('login')
   .description('Log in to the ShipEngine API')
   .option('-s, --setup_mode [mode]', 'Which setup mode to use')
-  .action(function (options: object) {
+  .action((options: object) => {
     login();
   });
 
@@ -21,7 +21,7 @@ program
   .command('logout')
   .description('Log out of the ShipEngine API')
   .option('-s, --setup_mode [mode]', 'Which setup mode to use')
-  .action(function (options: object) {
+  .action((options: object) => {
     logout();
   });
 
@@ -29,7 +29,7 @@ program
   .command('carriers <command>')
   .description('Execute actions against your ShipEngine carriers')
   .option('-e, --exec_mode <mode>', 'Which exec mode to use')
-  .action(function (command: string, options: object) {
+  .action((command: string, options: object) => {
     switch (command) {
       case 'ls':
         list();
@@ -41,7 +41,7 @@ program
         console.log(`${command} is not a valid subcommand for carriers`);
     }
   })
-  .on('--help', function () {
+  .on('--help', () => {
     console.log('');
     console.log('Example:');
     console.log('');

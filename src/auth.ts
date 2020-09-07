@@ -18,13 +18,13 @@ export function login() {
       },
     ])
     .then((answers: { api_key?: string }) => {
-      _setKey(answers.api_key);
+      setKey(answers.api_key);
       console.log('You have successfully logged in.');
     });
 }
 
 export function logout() {
-  _clearKey();
+  clearKey();
   console.log('You are no longer logged-in to ShipEngine.');
 }
 
@@ -33,12 +33,12 @@ export function getKey() {
   return key;
 }
 
-function _setKey(api_key?: string) {
-  NetRC.host('api.shipengine.com').password = api_key;
+function setKey(apiKey?: string) {
+  NetRC.host('api.shipengine.com').password = apiKey;
   NetRC.write();
 }
 
-function _clearKey() {
+function clearKey() {
   NetRC.host('api.shipengine.com').password = false;
   NetRC.write();
 }
