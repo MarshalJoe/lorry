@@ -2,9 +2,15 @@
 
 import { login, logout } from "./auth";
 import { list } from "./carriers";
+import program from "commander";
 import chalk from "chalk";
 import figlet from "figlet";
-import program from "commander";
+
+if (!process.argv.slice(2).length) {
+  console.log(
+    chalk.white(figlet.textSync("Lorry", { horizontalLayout: "full" })),
+  );
+}
 
 program
   .version("1.0.0")
@@ -47,10 +53,3 @@ program
   });
 
 program.parse(process.argv);
-
-if (!process.argv.slice(2).length) {
-  console.log(
-    chalk.white(figlet.textSync("Lorry", { horizontalLayout: "full" })),
-  );
-  program.outputHelp();
-}
