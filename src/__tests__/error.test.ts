@@ -1,13 +1,25 @@
+import {
+  AxiosError,
+} from 'axios';
 import { handleAPIError } from '../error';
+const chalk = require('chalk');
 
 test('APIError handler', () => {
-  const error = {
+	const logSpy = jest.spyOn(console, 'log').mockImplementation(jest.fn())
+  const error: AxiosError = {
   	response: {
   		data: { foo: 'baz' },
+  		config: {},
   		status: 401,
   		headers: {},
+  		statusText: 'sdsd',
   	},
+  	config: {},
+  	isAxiosError: true,
+  	toJSON: () => Object,
+  	name: 'error',
+  	message: 'axios error'
   };
-  expect(true).toBe(true);
-  //expect(handleAPIError(error)).toBe('Error: The given API key is not valid');
+  handleAPIError(error);
+  expect(logSpy).toHaveBeenCalledWith(chalk.red("Error: The given API key is not valid"));
 });
