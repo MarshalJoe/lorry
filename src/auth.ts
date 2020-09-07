@@ -6,7 +6,7 @@ if (!NetRC.hasHost("api.shipengine.com")) {
 }
 
 export function login() {
-	if (get_key()) {
+	if (getKey()) {
 		return console.log("You are already logged in. Please logout to login as another user.");
 	}
 	inquirer.prompt([{
@@ -14,27 +14,27 @@ export function login() {
 		message: 'Please enter your ShipEngine API Key:',
 		name:'api_key'
 	}]).then((answers: { api_key? : string }) => {
-		_set_key(answers.api_key);
+		_setKey(answers.api_key);
 		console.log('You have successfully logged in.');
 	});
 };
 
 export function logout() {
-	_clear_key();
+	_clearKey();
 	console.log("You are no longer logged-in to ShipEngine.");
 };
 
-export function get_key() {
+export function getKey() {
 	const key = NetRC.host("api.shipengine.com").password;
 	return key;
 }
 
-function _set_key(api_key? : string) {
+function _setKey(api_key? : string) {
 	NetRC.host("api.shipengine.com").password = api_key;
 	NetRC.write();
 }
 
-function _clear_key() {
+function _clearKey() {
 	NetRC.host("api.shipengine.com").password = false;
 	NetRC.write();
 }

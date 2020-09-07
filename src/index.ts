@@ -38,7 +38,7 @@ program
 		  	console.log("This method has not been implemented yet");
 		  	break;
 		  default:
-		    console.log('"%s" is not a valid subcommand for carriers', command);
+		    console.log(`${command} is not a valid subcommand for carriers`);
 		}
   }).on('--help', function() {
     console.log('');

@@ -1,7 +1,7 @@
 import axios, {
   AxiosResponse,
 } from 'axios';
-import { get_key } from './auth';
+import { getKey } from './auth';
 import { handleAPIError } from './error';
 
 interface Carrier {
@@ -10,7 +10,7 @@ interface Carrier {
 };
 
 export function list() {
-	const api_token = get_key();
+	const api_token = getKey();
 	if (!api_token) {
 		console.log("Please log in to access your account resources.");
 		return;
