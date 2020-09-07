@@ -1,5 +1,28 @@
 # Lorry
 
+```sh-session
+$ lorry
+  _
+ | |       ___    _ __   _ __   _   _
+ | |      / _ \  | '__| | '__| | | | |
+ | |___  | (_) | | |    | |    | |_| |
+ |_____|  \___/  |_|    |_|     \__, |
+                                |___/
+Usage: lorry [options] [command]
+
+A CLI for interacting with the ShipEngine API
+
+Options:
+  -V, --version       output the version number
+  -h, --help          display help for command
+
+Commands:
+  login               Log in to the ShipEngine API
+  logout              Log out of the ShipEngine API
+  carriers <command>  Execute actions against your ShipEngine carriers
+  help [command]      display help for command
+```
+
 <!-- toc -->
 * [Usage](#usage)
 * [Testing](#testing)
