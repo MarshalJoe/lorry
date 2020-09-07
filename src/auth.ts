@@ -1,8 +1,8 @@
 import inquirer from 'inquirer';
 const NetRC = require('netrc-rw');
 
-if (!NetRC.hasHost('shipengine.com')) {
-	NetRC.addHost('shipengine.com')
+if (!NetRC.hasHost("api.shipengine.com")) {
+	NetRC.addHost("api.shipengine.com");
 }
 
 export function login() {
@@ -14,8 +14,7 @@ export function login() {
 		message: 'Please enter your ShipEngine API Key:',
 		name:'api_key'
 	}]).then((answers: { api_key? : string }) => {
-		const api_key = answers.api_key;
-		_set_key(api_key);
+		_set_key(answers.api_key);
 		console.log('You have successfully logged in.');
 	});
 };
@@ -26,16 +25,16 @@ export function logout() {
 };
 
 export function get_key() {
-	let key = NetRC.host('shipengine.com').password;
+	const key = NetRC.host("api.shipengine.com").password;
 	return key;
 }
 
 function _set_key(api_key? : string) {
-	NetRC.host('shipengine.com').password = api_key;
+	NetRC.host("api.shipengine.com").password = api_key;
 	NetRC.write();
 }
 
 function _clear_key() {
-	NetRC.host('shipengine.com').password = false;
+	NetRC.host("api.shipengine.com").password = false;
 	NetRC.write();
 }

@@ -1,8 +1,8 @@
 import axios, {
   AxiosResponse,
-  AxiosError,
 } from 'axios';
 import { get_key } from './auth';
+import { handleAPIError } from './error';
 
 interface Carrier {
 	readonly friendly_name: string,
@@ -28,14 +28,5 @@ export function list() {
   			}
   		}
   	})
-  	.catch((error: AxiosError) => {
-  		if (error.response) {
-		    console.log(error.response.data);
-		    console.log(error.response.status);
-		    console.log(error.response.headers);
-		    console.log(error);
-		  } else {
-		    console.log(error.message);
-		  }
-  	});
+  	.catch(handleAPIError);
 }
