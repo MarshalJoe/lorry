@@ -3,16 +3,14 @@
 import { login, logout } from './auth';
 import { list } from './carriers';
 import chalk from 'chalk';
-const figlet = require('figlet');
-const path = require('path');
-const program = require('commander');
+import figlet from 'figlet';
+import program from 'commander';
 
 program.version('1.0.0').description('A CLI for interacting with the ShipEngine API');
 
 program
   .command('login')
   .description('Log in to the ShipEngine API')
-  .option('-s, --setup_mode [mode]', 'Which setup mode to use')
   .action((options: object) => {
     login();
   });
@@ -20,7 +18,6 @@ program
 program
   .command('logout')
   .description('Log out of the ShipEngine API')
-  .option('-s, --setup_mode [mode]', 'Which setup mode to use')
   .action((options: object) => {
     logout();
   });
@@ -28,7 +25,6 @@ program
 program
   .command('carriers <command>')
   .description('Execute actions against your ShipEngine carriers')
-  .option('-e, --exec_mode <mode>', 'Which exec mode to use')
   .action((command: string, options: object) => {
     switch (command) {
       case 'ls':
