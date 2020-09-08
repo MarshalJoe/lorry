@@ -51,6 +51,9 @@ export function getKey(): string | undefined {
  */
 function setKey(apiKey: string): void {
   netrc.loadSync();
+  if (!netrc.machines[HOST]) {
+    netrc.machines[HOST] = {};
+  }
   netrc.machines[HOST].password = apiKey;
   netrc.saveSync();
 }
@@ -60,6 +63,9 @@ function setKey(apiKey: string): void {
  */
 function clearKey(): void {
   netrc.loadSync();
+  if (!netrc.machines[HOST]) {
+    netrc.machines[HOST] = {};
+  }
   netrc.machines[HOST].password = false;
   netrc.saveSync();
 }
