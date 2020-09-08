@@ -9,7 +9,7 @@ export enum Errors {
   Default = "Error: Unable to reach the ShipEngine API - please make sure you are connected",
 }
 
-export function handleAPIError(error: AxiosError) {
+export function handleAPIError(error: AxiosError) : void {
   if (error.response) {
     switch (error.response?.status) {
       case 400:
