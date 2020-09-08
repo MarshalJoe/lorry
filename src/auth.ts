@@ -40,7 +40,7 @@ export function logout(): void {
  */
 export function getKey(): string | undefined {
   netrc.loadSync();
-  const key = netrc.machines[HOST].password;
+  const key = netrc.machines[HOST] ? netrc.machines[HOST].password : undefined;
   return key;
 }
 
