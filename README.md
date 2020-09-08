@@ -93,7 +93,7 @@ ALIASES
   $ lorry login
 ```
 
-_See code: [src\auth.ts]()_
+_See code: [src\auth.ts](https://github.com/MarshalJoe/lorry/blob/master/src/auth.ts#L9)_
 
 ## `lorry logout`
 
@@ -110,7 +110,7 @@ ALIASES
   $ connect logout
 ```
 
-_See code: [src\auth.ts]()_
+_See code: [src\auth.ts](https://github.com/MarshalJoe/lorry/blob/master/src/auth.ts#L32)_
 
 ## `lorry carriers <COMMAND>`
 
@@ -124,5 +124,5 @@ OPTIONS
   -h, --help  Show help for the logs command
 ```
 
-_See code: [src\carriers.ts]()_
+_See code: [src\carriers.ts](https://github.com/MarshalJoe/lorry/blob/master/src/carriers.ts#L10)_
 <!-- commandsstop -->
