@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { login, logout } from "./auth";
-import { list } from "./carriers";
+import Carriers from "./Carriers";
 import program from "commander";
 import chalk from "chalk";
 import figlet from "figlet";
@@ -36,7 +36,7 @@ program
   .action((command: string, options: object) => {
     switch (command) {
       case "ls":
-        list();
+        Carriers.list();
         break;
       case "get":
         console.log("This method has not been implemented yet");

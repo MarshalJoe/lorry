@@ -7,25 +7,43 @@ interface Carrier {
   readonly carrier_id: string;
 }
 
-export function list() {
-  const apiToken = getKey();
-  if (!apiToken) {
-    console.log("Please log in to access your account resources.");
-    return;
+export default abstract class Carriers {
+  private static apiURL: string = "https://api.shipengine.com";
+  private static apiToken: string | undefined;
+
+  /**
+   * Checks for the presence of the apiToken and returns a boolean for if it exists
+   * @returns {boolean} returns whether the apiToken / auth has been setup
+   */
+  private static setup(): boolean {
+    this.apiToken = getKey();
+    if (!this.apiToken) {
+      console.log("Please log in to access your account resources.");
+      return false;
+    } else {
+      return true;
+    }
   }
 
-  axios
-    .get<Carrier[]>("https://api.shipengine.com/v1/carriers", {
-      headers: { "API-Key": apiToken },
-    })
-    .then((response: AxiosResponse) => {
-      const { carriers } = response.data;
-      console.log(`You have ${carriers.length} carrier accounts connected:`);
-      if (carriers.length > 0) {
-        for (const carrier of carriers) {
-          console.log(`- ${carrier.friendly_name} (${carrier.carrier_id})`);
+  /**
+   * Lists carrier resources
+   */
+  public static list(): undefined | void {
+    if (!this.setup()) return;
+
+    axios
+      .get<Carrier[]>(`${this.apiURL}/v1/carriers`, {
+        headers: { "API-Key": this.apiToken },
+      })
+      .then((response: AxiosResponse) => {
+        const { carriers } = response.data;
+        console.log(`You have ${carriers.length} carrier accounts connected:`);
+        if (carriers.length > 0) {
+          for (const carrier of carriers) {
+            console.log(`- ${carrier.friendly_name} (${carrier.carrier_id})`);
+          }
         }
-      }
-    })
-    .catch(handleAPIError);
+      })
+      .catch(handleAPIError);
+  }
 }

@@ -27,6 +27,7 @@ Commands:
 * [Usage](#usage)
 * [Testing](#testing)
 * [Linting](#linting)
+* [Formatting](#formatting)
 * [Commands](#commands)
 <!-- tocstop -->
 
@@ -61,6 +62,14 @@ $ npm run test
 $ npm run lint
 ```
 <!-- lintingstop -->
+
+# Formatting
+
+<!-- formatting -->
+```sh-session
+$ npm run format
+```
+<!-- formattingstop -->
 
 # Commands
 
@@ -109,7 +118,7 @@ Execute actions against your ShipEngine carriers
 
 ```
 USAGE
-  $ lorry carriers <COMMAND>
+  $ lorry carriers ls
 
 OPTIONS
   -h, --help  Show help for the logs command

@@ -14,7 +14,7 @@ export enum Errors {
  *
  * @param {AxiosError} error The API error
  */
-export function handleAPIError(error: AxiosError) : void {
+export function handleAPIError(error: AxiosError): void {
   if (error.response) {
     switch (error.response?.status) {
       case 400:
