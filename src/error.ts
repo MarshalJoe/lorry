@@ -9,6 +9,11 @@ export enum Errors {
   Default = "Error: Unable to reach the ShipEngine API - please make sure you are connected",
 }
 
+/**
+ * Parses an axios api error into a message
+ *
+ * @param {AxiosError} error The API error
+ */
 export function handleAPIError(error: AxiosError) : void {
   if (error.response) {
     switch (error.response?.status) {
