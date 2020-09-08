@@ -1,6 +1,6 @@
 {
   "name": "@jarsmohella/lorry",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A CLI for interacting with the ShipEngine API",
   "main": "./lib/index.js",
   "keywords": [
