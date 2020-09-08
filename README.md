@@ -1,3 +1,5 @@
+![Lorry CLI](https://s.clipartkey.com/mpngs/s/227-2275392_truck-lorry-clipart-black-and-white.png)
+
 # Lorry
 
 ```sh-session
