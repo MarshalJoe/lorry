@@ -1,11 +1,7 @@
 import inquirer from "inquirer";
-const NetRC = require("netrc-rw");
+const netrc = require('netrc-parser').default
 
 const HOST = "api.shipengine.com";
-
-if (!NetRC.hasHost(HOST)) {
-  NetRC.addHost(HOST);
-}
 
 export function login() : void {
   if (getKey()) {
@@ -33,16 +29,19 @@ export function logout() : void {
 }
 
 export function getKey(): string {
-  const key = NetRC.host(HOST).password;
+  netrc.loadSync();
+  const key = netrc.machines[HOST].password;
   return key;
 }
 
 function setKey(apiKey: string) : void {
-  NetRC.host(HOST).password = apiKey;
-  NetRC.write();
+  netrc.loadSync();
+  netrc.machines[HOST].password = apiKey;
+  netrc.saveSync();
 }
 
 function clearKey(): void {
-  NetRC.host(HOST).password = false;
-  NetRC.write();
+  netrc.loadSync();
+  netrc.machines[HOST].password = false;
+  netrc.saveSync();
 }
